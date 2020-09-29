@@ -1,0 +1,16 @@
+{
+  "name": "project-helpers",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@gitlab.devaus.eu:kirbo/project-helpers.git",
+  "author": "Kimmo Saari <kirbownz@me.com>",
+  "license": "MIT",
+  "scripts": {
+    "tag-commit": "./bash/tag-commit.sh",
+    "tag-list": "./bash/tag-list.sh"
+  },
+  "bin": {
+    "tag-commit": "./bash/tag-commit.sh",
+    "tag-list": "./bash/tag-list.sh"
+  }
+}
