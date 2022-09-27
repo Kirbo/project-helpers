@@ -11,8 +11,8 @@ Add new scripts to `pacakge.json` file:
 "scripts": {
   "tag:list": "tag-list",
   "tag:commit": "tag-commit",
-  "deploy:dev": "joku_komento millä_deployataan deviin && yarn tag:commit dev",
-  "deploy:prod": "joku_komento millä_deployataan prodiin && yarn tag:commit prod"
+  "deploy:dev": "some_command/that_will_deploy_to dev && yarn tag:commit dev",
+  "deploy:prod": "some_command/that_will_deploy_to prod && yarn tag:commit prod"
 }
 ```
 
