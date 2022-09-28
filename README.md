@@ -29,6 +29,20 @@ yarn deploy:dev
 yarn tag:list
 ```
 
+## Predefined stages
+
+There are hard coded pre-defined stages:
+- `dev`
+- `test`
+- `qa`
+- `prod`
+
+The `tag:list` will group the tags into following sections:
+- `DEV`
+- `TEST`
+- `QA`
+- `PROD`
+- `OTHER`
 
 ## Example project
 

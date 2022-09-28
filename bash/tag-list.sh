@@ -35,7 +35,7 @@ add_topic "Tagged on" ${TAGGED_ON_MAX_LENGTH}
 add_topic "Tagger" ${AUTHOR_MAX_LENGTH}
 add_topic "Commit Message" ${MESSAGE_MAX_LENGTH}
 
-for STAGE in $(echo "dev tst qa prd"); do
+for STAGE in $(echo "dev test qa prod"); do
   REMOVE_OLD_TAGS=$(git tag --sort=-taggerdate | egrep "^${STAGE}-" | awk 'NR>3')
   if ! [[ -z "${REMOVE_OLD_TAGS}" ]]; then
     git tag -d ${REMOVE_OLD_TAGS}
@@ -44,14 +44,14 @@ for STAGE in $(echo "dev tst qa prd"); do
 done
 
 DEV_TAGS=$(git tag --sort=-taggerdate | egrep "^dev-")
-TST_TAGS=$(git tag --sort=-taggerdate | egrep "^tst-")
+TEST_TAGS=$(git tag --sort=-taggerdate | egrep "^test-")
 QA_TAGS=$(git tag --sort=-taggerdate | egrep "^qa-")
-PRD_TAGS=$(git tag --sort=-taggerdate | egrep "^prd-")
-OTHER_TAGS=$(git tag --sort=-taggerdate | egrep -v "^(dev|tst|qa|prd)-")
+PROD_TAGS=$(git tag --sort=-taggerdate | egrep "^prod-")
+OTHER_TAGS=$(git tag --sort=-taggerdate | egrep -v "^(dev|test|qa|prod)-")
 
 output_topic
 
-for CATEGORY in $(echo "DEV TST QA PRD OTHER"); do
+for CATEGORY in $(echo "DEV TEST QA PROD OTHER"); do
   TAGS="${CATEGORY}_TAGS"
   if ! [[ -z "${!TAGS}" ]]; then
     for TAG in $(echo "${!TAGS}"); do
